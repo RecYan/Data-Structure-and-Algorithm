@@ -6,15 +6,15 @@ package Stack;
  */
 public class ArrayStack<E> implements Stack<E> {
 
-    Stack.Array<E> array; //引入自己的动态数组
+    Array<E> array; //引入自己的动态数组
 
     // 栈容量初始化
     public ArrayStack(int capacity) {
-        array = new Stack.Array<>(capacity);
+        array = new Array<E>(capacity);
     }
 
     public ArrayStack() {
-        array = new Stack.Array<>();
+        array = new Array<E>();
     }
 
     //查看栈的容量
