@@ -1,0 +1,24 @@
+import Queue.LoopQueue;
+
+/**
+ * Created by Yan_Jiang on 2018/8/20.
+ * 测试
+ */
+public class TestLoopQueue {
+
+    public static void main(String[] args) {
+
+        LoopQueue<Integer> queue = new LoopQueue<Integer>();
+
+        for (int i = 0; i <10 ; i++) {
+            queue.enqueue(i);
+            System.out.println(queue);
+
+            if(i%3 == 2) {
+                queue.dequeue();
+                System.out.println(queue);
+            }
+        }
+
+    }
+}
