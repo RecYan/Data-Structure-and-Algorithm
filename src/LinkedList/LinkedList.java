@@ -31,11 +31,11 @@ public class LinkedList<E> {
         }
     }
     //-------------------------------- NOde ------------
-    private Node head; //头节点 并指向下一个节点
+    private Node dummyHead; //虚拟头节点 指向下一个真正的节点
     private int size; //链表中节点的个数
 
     public LinkedList() {
-        head = null;
+        dummyHead = new Node(null, null);
         size = 0;
     }
 
@@ -49,17 +49,40 @@ public class LinkedList<E> {
         return size == 0;
     }
 
-    //向链表头添加新的节点e
-    public void addFirst(E e) {
-//        Node node = new Node(e); //待添加的节点
-//        node.next = head; //将node的next指向head
-//        node = head; //更新head
-        head = new Node(e, head); //等价于上面的代码
+    //向链表的index位置添加新的元素e
+    public void add(int index, E e) {
+        if(index < 0 || index > size) {//可以取到size即在链表末尾添加元素
+            throw new IllegalArgumentException("Add failed. Illegal index.");
+        }
+        //在head处新创建一个prev引用
+        Node prev = dummyHead; //*** dummyHead：索引为0这个节点的前一个节点
+        //遍历链表，找到index-1处的索引
+        for(int i=0; i<index; i++) {
+            prev = prev.next; //将prev依次向前移动到index-1处
+        }
+        /*//待插入的node
+        Node newNode = new Node(e);
+        //改变引用  ---> 顺序不可改变
+        newNode.next = prev.next;
+        prev.next = newNode;*/
+        //同理 上面三行代码等价于下行代码
+        prev.next = new Node(e, prev.next);
 
         size ++;
     }
 
-    //向链表的index位置添加新的元素e
+    //向链表头添加新的节点e
+    public void addFirst(E e) {
+        add(0, e);
+
+        size ++;
+    }
+
+    //向链表末尾处添加新的元素e
+    public void addLast(E e) {
+        add(size, e);
+    }
+
 
 
 
