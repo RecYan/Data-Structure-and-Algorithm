@@ -70,15 +70,15 @@ public class LinkedListQueue<E> implements Queue<E> {
     @Override
     public E dequeue() {
         if(isEmpity()) {
-            throw new IllegalArgumentException("empty queue.....")
+            throw new IllegalArgumentException("empty queue.....");
         }
 
         Node dequeueNode = head; //需要出队的节点
         head = head.next;
-        dequeueNode.next = null //手动回收内存
+        dequeueNode.next = null; //手动回收内存
         // 考虑空链表情况 即head tail 指向null
         if(head == null) {
-            tail = null
+            tail = null;
         }
         size --;
 
@@ -88,7 +88,7 @@ public class LinkedListQueue<E> implements Queue<E> {
     @Override
     public E getFront() {
         if(isEmpity()) {
-            throw new IllegalArgumentException("empty queue.....")
+            throw new IllegalArgumentException("empty queue.....");
         }
 
         return head.e;
@@ -104,7 +104,7 @@ public class LinkedListQueue<E> implements Queue<E> {
             res.append(cur+"->");
             cur = cur.next;
         }
-        res.append("NULL Tail")
+        res.append("NULL Tail");
 
         return res.toString();
     }
