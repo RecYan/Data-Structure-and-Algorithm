@@ -51,7 +51,6 @@ public class BST<E extends Comparable<E>> {
         }*/
         root = add(root, e);
     }
-
     //递归向以node为根的树中添加元素 并返回插入新节点后的根节点
     private Node add(Node node, E e) {
 
@@ -72,7 +71,6 @@ public class BST<E extends Comparable<E>> {
             size ++;
             return new Node(e);
         }
-
         //重复元素问题已被过滤 且孩子节点为空情况也被解决 -- 可以递归调用
         if(e.compareTo(node.e) < 0) {
             node.left = add(node.left, e);
@@ -88,7 +86,6 @@ public class BST<E extends Comparable<E>> {
 
         return contains(root, e);
     }
-
     //递归实现 查看以node为根节点的书中 是否包含元素e
     private boolean contains(Node node, E e) {
 
@@ -96,7 +93,6 @@ public class BST<E extends Comparable<E>> {
         if(node == null) {
             return false;
         }
-
         if(e.compareTo(node.e) < 0) {
             return contains(node.left, e);
         } else if(e.compareTo(node.e) > 0) {
@@ -106,6 +102,55 @@ public class BST<E extends Comparable<E>> {
         }
 
     }
+
+    //前序遍历
+    public void preOrder() {
+
+        preOrder(root);
+    }
+    //以node为根节点的前序递归遍历
+    private void preOrder(Node node) {
+
+        //1. 递归终止条件
+        if(node == null) {
+            return;
+        }
+
+        //2. 递归具体逻辑
+        preOrder(node.left);
+        preOrder(node.right);
+
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder res = new StringBuilder();
+        generateBSTString(root, 0, res);
+        return res.toString();
+    }
+
+    // 生成以node为根节点，深度为depth的二叉树的字符串
+    private void generateBSTString(Node node, int depth, StringBuilder res) {
+
+        if(node == null) {
+            res.append(generateDepthString(depth) + "null\n");
+            return;
+        }
+
+        res.append(generateDepthString(depth) + node.e + "\n");
+        generateBSTString(node.left, depth + 1, res);
+        generateBSTString(node.right, depth + 1, res);
+    }
+
+    private String generateDepthString(int depth){
+        StringBuilder res = new StringBuilder();
+        for(int i = 0 ; i < depth ; i ++) {
+
+            res.append("--");
+        }
+        return res.toString();
+    }
+
 
 
 }
