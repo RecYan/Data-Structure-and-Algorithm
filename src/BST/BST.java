@@ -1,5 +1,9 @@
 package BST;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
 /**
  * Created by Yan_Jiang on 2018/9/12.
  * 二分搜索树
@@ -117,10 +121,90 @@ public class BST<E extends Comparable<E>> {
         }
 
         //2. 递归具体逻辑
+        System.out.println(node.e); //节点
         preOrder(node.left);
         preOrder(node.right);
 
     }
+
+    //*********** 非递归实现BST的前序遍历 *******************
+    public void preOrderNR() {
+
+        Stack<Node> stack = new Stack<Node>(); //使用栈来保存要访问的元素
+        stack.push(root);
+
+        while(!stack.isEmpty()) {
+
+            Node cur = stack.pop(); //当前访问节点
+            System.out.println(cur.e);
+
+            if(cur.right != null) { //栈先进后出 所以前序先压入右子树  ---- 判断当前节点的孩子节点
+                stack.push(cur.right);
+            }
+            if(cur.left != null) {
+                stack.push(cur.left);
+            }
+        }
+
+    }
+
+    //中序遍历
+    public void inOrder() {
+        inOrder(root);
+    }
+    //以Node为根节点 中序遍历
+    private void inOrder(Node node) {
+
+        if(node == null) {
+            return;
+        }
+
+        inOrder(node.left);
+        System.out.println(node.e);
+        inOrder(node.right);
+    }
+
+    //中序遍历
+    public void postOrder() {
+        postOrder(root);
+    }
+    //以Node为根节点 中序遍历
+    private void postOrder(Node node) {
+
+        if(node == null) {
+            return;
+        }
+
+        inOrder(node.left);
+        inOrder(node.right);
+        System.out.println(node.e);
+
+    }
+
+
+    //**************************** 层序遍历 *****************
+    public void leverOrder() {
+
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(root);
+
+        while(queue != null) {
+
+            Node cur = queue.remove(); //当前访问节点
+            System.out.println(cur.e);
+
+            if(cur.left != null) {
+                queue.add(cur.left);
+            }
+            if(cur.right != null) {
+                queue.add(cur.right);
+            }
+
+        }
+
+    }
+
+
 
     @Override
     public String toString() {
