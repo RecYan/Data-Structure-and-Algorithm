@@ -22,7 +22,7 @@ public class bstTest {
         // 2  4     8  //
         /////////////////
 
-        bst.preOrder();
+        /*bst.preOrder();
         System.out.println(bst);
 
         bst.inOrder();
@@ -30,11 +30,11 @@ public class bstTest {
 
         bst.postOrder();
         System.out.println(bst);
-
+*/
         bst.preOrderNR();
 
-        System.out.println("++++++++++++++++++++++++++++++++");
-        bst.leverOrder();
+        /*System.out.println("++++++++++++++++++++++++++++++++");
+        bst.leverOrder();*/
 
 
     }
