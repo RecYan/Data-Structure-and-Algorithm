@@ -1,7 +1,7 @@
 package Algorithm;
 
 /**
- * Created by Yan_Jiang on 2018/9/14.
+ * Created by Yan_Jiang on 
  * 选择排序
  *   时间复杂度 O(n*n)
  */
@@ -12,7 +12,7 @@ public class SelectSort {
         if(arr == null || arr.length < 2 ) {
             return;
         }
-
+		//选最小的放在最前面
         for(int i=0; i<arr.length-1; i++) { // 0--N-1
             int minIndex = i; //带比较值的坐标
             for(int j=i+1; j<arr.length; j++) { // 1--N-1，一次类推

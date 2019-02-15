@@ -1,7 +1,7 @@
 package Algorithm;
 
 /**
- * Created by Yan_Jiang on 2018/9/16.
+ * Created by Yan_Jiang 
      * 小和问题
      在一个数组中，每一个数左边比当前数小的数累加起来，叫做这个数组的小和。求一个数组
      的小和。
@@ -48,7 +48,7 @@ public class SmallSum {
 
         while (p1 <= mid && p2 <= R) { //未超过边界
 
-            res += arr[p1] < arr[p2] ? (R - p2 + 1) * arr[p1] : 0; //找出右边比arr[p1]大的数有多少个
+            res += arr[p1] < arr[p2] ? (R - p2 + 1) * arr[p1] : 0; //求和过程 找出右边比arr[p1]大的数有多少个
 
             help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];  //辅助数组 那个小就存放那个
         }

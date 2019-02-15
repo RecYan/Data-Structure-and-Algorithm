@@ -1,8 +1,8 @@
 package Algorithm;
 
 /**
- * Created by Yan_Jiang on 2018/9/16.
- * 在一个数组中，左边的数如果比右边的数大，则折两个数构成一个逆序对，请打印所有逆序对。
+ * Created by Yan_Jiang on 
+ * 在一个数组中，左边的数如果比右边的数大，则这两个数构成一个逆序对，请打印所有逆序对。
         例如：1, 5, 6, 3, 2的逆序对为(3,2), (5,2), (6,2), (5,3), (6,3)
  */
 public class ReversePart {
