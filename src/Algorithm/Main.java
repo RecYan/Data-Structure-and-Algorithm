@@ -1,7 +1,7 @@
 package Algorithm;
 
 /**
- * Created by Yan_Jiang on 2018/9/16.
+ * Created by Yan_Jiang on 
  * 递归实现寻找数组中的最大值
  */
 public class Main {

@@ -1,7 +1,7 @@
 package Algorithm;
 
 /**
- * Created by Yan_Jiang on 2018/9/13.
+ * Created by Yan_Jiang 
  * 冒泡排序
  *  时间复杂度 O(n*n)
  */
@@ -12,7 +12,7 @@ public class BubbleSort {
         if(arr == null || arr.length < 2) {
             return;
         }
-        //循环遍历
+        //选最大的放在最后面
         for (int end = arr.length - 1; end > 0; end--) { //初始外层0--N-1
             for (int i = 0; i < end; i++) { //内层除去最后一个数 再次遍历0--N-2
                 if (arr[i] > arr[i + 1]) {
