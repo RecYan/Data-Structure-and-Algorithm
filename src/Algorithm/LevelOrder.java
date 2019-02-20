@@ -8,19 +8,19 @@ import java.util.LinkedList;
 */
 public class LevelOrder
 {
-  public void levelOrderRecur(Node root)
+  public void levelOrder(Node root)
   {
 	  if(root == null)
 	  {
 		  return ;
 	  }
-	  LinkedList<Node> queue = new LinkedList<>();
+	  LinkedList<Node> queue = new LinkedList<>(); //模拟队列结构
 	  Node current = null;
 	  queue.offer(root);//将根节点入队
 	  while(!queue.isEmpty())
 	  {
 		  current = queue.poll();//出队队头元素并访问
-		  System.out.print(current.val +"-->");
+		  System.out.print(current.val +"-->"); //打印当前节点元素
 		  if(current.left != null)//如果当前节点的左节点不为空入队
 		  {
 			  queue.offer(current.left);
