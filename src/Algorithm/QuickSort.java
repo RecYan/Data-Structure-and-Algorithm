@@ -34,8 +34,12 @@ public class QuickSort {
 			
 	*/
 	public static int[] partition(int[] arr, int l, int r) {
-		int less = l - 1;
-		int more = r; //包括数组最后一个元素
+		int less = l - 1; //初始的小于区域       
+		int more = r; //包括数组最后一个元素 --> 初始化大于区域
+		/**
+			如果遍历下标 遇到比带比较数小的数 则将该数与小于区域的后一个交换
+				
+		*/
 		while (l < more) {
 			if (arr[l] < arr[r]) {
 				swap(arr, ++less, l++);
