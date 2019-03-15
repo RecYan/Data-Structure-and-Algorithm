@@ -7,7 +7,7 @@ package Algorithm.AlgorithmSloution;
  *      前序确定root节点的值
  *          中序中确定root节点的位置 --> root节点之前的元素为树的左孩子 root节点之后的元素为数的右孩子
  */
-public class constructTree {
+public class ConstructTree {
 
     /**
      * 二叉树节点类
@@ -55,12 +55,12 @@ public class constructTree {
         BinaryTreeNode node = new BinaryTreeNode();
         node.value = value;
         // 递归构建当前根结点的左子树，左子树的元素个数：index-is+1个
-        // 左子树对应的前序遍历的位置在[ps+1, ps+index-is]
-        // 左子树对应的中序遍历的位置在[is, index-1]
+            // 左子树在前序遍历的位置在[ps+1, ps+index-is]
+            // 左子树在中序遍历的位置在[is, index-1]
         node.left = construct(preorder, ps + 1, ps + index - is, inorder, is, index - 1);
         // 递归构建当前根结点的右子树，右子树的元素个数：ie-index个
-        // 右子树对应的前序遍历的位置在[ps+index-is+1, pe]
-        // 右子树对应的中序遍历的位置在[index+1, ie]
+            // 右子树在前序遍历的位置在[ps+index+1-is, pe]
+            // 右子树在中序遍历的位置在[index+1, ie]
         node.right = construct(preorder, ps + index - is + 1, pe, inorder, index + 1, ie);
         // 返回创建的根结点
         return node;
